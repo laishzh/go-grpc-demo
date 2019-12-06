@@ -9,6 +9,7 @@ RUN go get -v -u github.com/laishzh/go-grpc-demo/go_grpc_demo_client \
 RUN cp "${GOPATH}/bin/go_grpc_demo_client" /tmp/
 
 FROM alpine
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 COPY --from=compiler /tmp/go_grpc_demo_client /usr/bin/go_grpc_demo_client
 
 CMD [ "go_grpc_demo_client" ]

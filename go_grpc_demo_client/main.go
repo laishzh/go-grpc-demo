@@ -22,6 +22,7 @@ func init() {
 
 func main() {
 	fmt.Println("Client Start!!")
+	fmt.Printf("Connect to: %s\n", address)
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
