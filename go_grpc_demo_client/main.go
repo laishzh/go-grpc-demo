@@ -6,12 +6,19 @@ import (
 	pb "github.com/laishzh/go-grpc-demo/pb"
 	"google.golang.org/grpc"
 	"log"
+	"os"
 	"time"
 )
 
-const (
+var (
 	address = "localhost:50051"
 )
+
+func init() {
+	if len(os.Args) > 1 {
+		address = os.Args[1]
+	}
+}
 
 func main() {
 	fmt.Println("Client Start!!")
